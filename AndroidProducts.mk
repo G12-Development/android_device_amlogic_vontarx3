@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_m5.mk
+    $(LOCAL_DIR)/lineage_vontarx3.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_m5-eng \
-    lineage_m5-user \
-    lineage_m5-userdebug
+    lineage_vontarx3-eng \
+    lineage_vontarx3-user \
+    lineage_vontarx3-userdebug

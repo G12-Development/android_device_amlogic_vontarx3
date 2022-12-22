@@ -4,25 +4,41 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-include device/amlogic/g12-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/bananapi/m5
+DEVICE_PATH := device/amlogic/vontarx3
 
 ## Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := m5
+TARGET_BOOTLOADER_BOARD_NAME := vontarx3
+
+## Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
+BOARD_CUSTOM_BT_CONFIG := $(DEVICE_PATH)/bluetooth/vnd_amlogic_lpm.txt
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
 
 ## DTB
-TARGET_DTB_NAME := sm1_s905y3_bananapim5
-TARGET_DTBO_NAME := sm1_s905y3_bananapim5_wifi_overlay
+TARGET_DTB_NAME := sm1_vontarx3
+#TARGET_DTBO_NAME := sm1_s905y3_bananapim5_wifi_overlay
+
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissiv
 
 ## Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
+TARGET_DHD_VERSION := bcmdhd.100.10.545.x
+
+TARGET_AMLOGIC_SOC := sm1
+
 ## Wi-Fi
-BOARD_WLAN_DEVICE := realtek
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_WLAN_DEVICE := bcmdhd
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_FW_PATH_AP := "/vendor/etc/wifi/buildin/fw_bcm4339a0_ag.bin"
+WIFI_DRIVER_FW_PATH_STA := "/vendor/etc/wifi/buildin/fw_bcm4339a0_ag.bin"
+WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_rtl
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
-WIFI_DRIVER_SOCKET_IFACE := wlan0
-PRODUCT_CFI_INCLUDE_PATHS += hardware/realtek/wlan/wpa_supplicant_8_lib
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
+
+include device/amlogic/g12-common/BoardConfigCommon.mk

@@ -9,4 +9,4 @@ ro.vendor.platform.support.dolbyvision=false
 vendor.media.support.dolbyvision=false
 
 ## SOC
-ro.soc.model=AMLS905Y3
+ro.soc.model=AMLS905X3

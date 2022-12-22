@@ -4,13 +4,12 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/bananapi/m5
-
-$(call inherit-product, device/amlogic/g12-common/g12.mk)
+$(call inherit-product, vendor/amlogic/vontarx3/vontarx3-vendor.mk)
 
 ## Bluetooth
-BOARD_HAVE_BLUETOOTH_RTK_TV := true
-include hardware/realtek/rtkbt/rtkbt.mk
+BOARD_HAVE_BLUETOOTH := true
+PRODUCT_PACKAGES += \
+    libbt-vendor
 
 ## Factory
 PRODUCT_HOST_PACKAGES += \
@@ -18,13 +17,16 @@ PRODUCT_HOST_PACKAGES += \
 
 ## Init-Files
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/init-files/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
+    $(LOCAL_PATH)/init-files/init.amlogic.wifi_buildin.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.amlogic.wifi_buildin.rc
 
 ## Kernel Modules
 PRODUCT_PACKAGES += \
-    8822cs \
-    rtk_btusb
+    dhd
 
 ## Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(DEVICE_PATH)/overlay
+    $(LOCAL_PATH)/overlay
+
+include hardware/amlogic/kernel-modules/dhd-driver/firmware/firmware.mk
+
+$(call inherit-product, device/amlogic/g12-common/g12.mk)
