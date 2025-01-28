@@ -30,4 +30,4 @@ TARGET_HAS_TEE := false
 $(call inherit-product, device/amlogic/sm1-common/sm1.mk)
 
 ## Inherit from the proprietary files makefile
-$(call inherit-product, vendor/amlogic/m5/m5-vendor.mk)
+$(call inherit-product, vendor/amlogic/vontarx3/vontarx3-vendor.mk)

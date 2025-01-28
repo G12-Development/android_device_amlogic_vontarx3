@@ -14,10 +14,10 @@ fi
 
 set -e
 
-export DEVICE=m5
+export DEVICE=vontarx3
 export DEVICE_COMMON=sm1-common
 export VENDOR=amlogic
-export VENDOR_BRAND=bananapi
+export VENDOR_BRAND=amlogic
 export VENDOR_COMMON=amlogic
 
 "./../../${VENDOR_COMMON}/${DEVICE_COMMON}/extract-files.sh" "$@"

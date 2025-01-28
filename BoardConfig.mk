@@ -4,19 +4,18 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/bananapi/m5
+DEVICE_PATH := device/amlogic/vontarx3
 
 ## Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := m5
+TARGET_BOOTLOADER_BOARD_NAME := vontarx3
 
 ## DTB
-TARGET_DTB_NAME := sm1_s905y3_bananapim5
-TARGET_DTBO_NAME := sm1_s905y3_bananapim5_wifi_overlay
+TARGET_DTB_NAME := sm1_vontarx3
 
 ## Kernel modules
-TARGET_KERNEL_EXT_MODULES := \
-    rtk_btusb:kbuild \
-    rtl8822cs/rtl88x2CS:kbuild
+#TARGET_KERNEL_EXT_MODULES := \
+#    rtk_btusb:kbuild \
+#    rtl8822cs/rtl88x2CS:kbuild
 
 ## Partitions
 BOARD_SUPER_PARTITION_SIZE := 2084569088
@@ -38,4 +37,4 @@ PRODUCT_CFI_INCLUDE_PATHS += hardware/realtek/wlan/wpa_supplicant_8_lib
 include device/amlogic/sm1-common/BoardConfigCommon.mk
 
 ## Include the proprietary BoardConfig makefile
-include vendor/amlogic/m5/BoardConfigVendor.mk
+include vendor/amlogic/vontarx3/BoardConfigVendor.mk

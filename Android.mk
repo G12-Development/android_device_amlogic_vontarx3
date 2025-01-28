@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-ifneq ($(filter m5 m5_tab, $(TARGET_DEVICE)),)
+ifneq ($(filter vontarx3 vontarx3, $(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 include $(call all-makefiles-under,$(LOCAL_PATH))
@@ -13,6 +13,6 @@ include $(LOCAL_PATH)/factory.mk
 
 include external/wpa_supplicant_8/wpa_supplicant/wpa_supplicant_conf.mk
 
--include vendor/amlogic/m5/firmware.mk
+-include vendor/amlogic/vontarx3/firmware.mk
 
 endif

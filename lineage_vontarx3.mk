@@ -17,13 +17,13 @@ $(call inherit-product, vendor/lineage/config/common_full_tv.mk)
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_BRAND := bananapi
-PRODUCT_DEVICE := m5
+PRODUCT_BRAND := amlogic
+PRODUCT_DEVICE := vontarx3
 PRODUCT_GMS_CLIENTID_BASE := android-askey-tv
-PRODUCT_MANUFACTURER := bananapi
-PRODUCT_MODEL := BPI-M5
-PRODUCT_NAME := lineage_m5
-PRODUCT_SYSTEM_NAME := m5
+PRODUCT_MANUFACTURER := amlogic
+PRODUCT_MODEL := Vontar X3
+PRODUCT_NAME := lineage_vontarx3
+PRODUCT_SYSTEM_NAME := vontarx3
 
 PRODUCT_GMS_CLIENTID_BASE := android-droid-tv
 
