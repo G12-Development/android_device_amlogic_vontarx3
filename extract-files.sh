@@ -15,7 +15,7 @@ fi
 set -e
 
 export DEVICE=vontarx3
-export DEVICE_COMMON=sm1-common
+export DEVICE_COMMON=g12-common
 export VENDOR=amlogic
 export VENDOR_BRAND=amlogic
 export VENDOR_COMMON=amlogic

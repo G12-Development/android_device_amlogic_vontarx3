@@ -24,8 +24,6 @@ PRODUCT_COPY_FILES += \
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
-## Platform
-#TARGET_AMLOGIC_SOC := sm1
 
 ## TEE
 TARGET_HAS_TEE := false
@@ -34,7 +32,7 @@ TARGET_HAS_TEE := false
 include kernel/amlogic/kernel-modules/dhd-driver/firmware/wifi/wifi.mk
 
 ## Inherit from the common tree product makefile
-$(call inherit-product, device/amlogic/sm1-common/sm1.mk)
+$(call inherit-product, device/amlogic/g12-common/g12.mk)
 
 ## Inherit from the proprietary files makefile
 $(call inherit-product, vendor/amlogic/vontarx3/vontarx3-vendor.mk)

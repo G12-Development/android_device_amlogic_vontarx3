@@ -40,7 +40,7 @@ WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 ## Include the common tree BoardConfig makefile
-include device/amlogic/sm1-common/BoardConfigCommon.mk
+include device/amlogic/g12-common/BoardConfigCommon.mk
 
 ## Include the proprietary BoardConfig makefile
 include vendor/amlogic/vontarx3/BoardConfigVendor.mk
