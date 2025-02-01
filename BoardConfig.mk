@@ -6,6 +6,12 @@
 
 DEVICE_PATH := device/amlogic/vontarx3
 
+## Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
+BOARD_CUSTOM_BT_CONFIG := $(DEVICE_PATH)/bluetooth/vnd_vontarx3.txt
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+
 ## Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := vontarx3
 
@@ -13,9 +19,8 @@ TARGET_BOOTLOADER_BOARD_NAME := vontarx3
 TARGET_DTB_NAME := sm1_vontarx3
 
 ## Kernel modules
-#TARGET_KERNEL_EXT_MODULES := \
-#    rtk_btusb:kbuild \
-#    rtl8822cs/rtl88x2CS:kbuild
+TARGET_KERNEL_EXT_MODULES := \
+    dhd-driver/bcmdhd.100.10.545.x
 
 ## Partitions
 BOARD_SUPER_PARTITION_SIZE := 2084569088
@@ -25,13 +30,14 @@ TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 ## Wi-Fi
-BOARD_WLAN_DEVICE := realtek
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+BOARD_WLAN_DEVICE := bcmdhd
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_FW_PATH_AP := "/vendor/firmware/wifi/6335/fw_bcm4339a0_ag.bin"
+WIFI_DRIVER_FW_PATH_STA := "/vendor/firmware/wifi/6335/fw_bcm4339a0_ag.bin"
+WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_rtl
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
-WIFI_DRIVER_SOCKET_IFACE := wlan0
-PRODUCT_CFI_INCLUDE_PATHS += hardware/realtek/wlan/wpa_supplicant_8_lib
 
 ## Include the common tree BoardConfig makefile
 include device/amlogic/sm1-common/BoardConfigCommon.mk

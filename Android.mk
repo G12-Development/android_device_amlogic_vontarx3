@@ -11,8 +11,6 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(LOCAL_PATH)/factory.mk
 
-include external/wpa_supplicant_8/wpa_supplicant/wpa_supplicant_conf.mk
-
 -include vendor/amlogic/vontarx3/firmware.mk
 
 endif

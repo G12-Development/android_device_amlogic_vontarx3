@@ -1,1 +1,4 @@
-
+# Wifi
+vendor/etc/wifi/6335/config.txt:vendor/firmware/wifi/6335/config.txt
+vendor/etc/wifi/6335/fw_bcm4339a0_ag.bin:vendor/firmware/wifi/6335/fw_bcm4339a0_ag.bin
+vendor/etc/wifi/6335/nvram_ap6335.txt:vendor/firmware/wifi/6335/nvram_ap6335.txt

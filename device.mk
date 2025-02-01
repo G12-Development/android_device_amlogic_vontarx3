@@ -5,8 +5,12 @@
 #
 
 ## Bluetooth
-BOARD_HAVE_BLUETOOTH_RTK_TV := true
-include hardware/realtek/rtkbt/rtkbt.mk
+PRODUCT_PACKAGES += \
+    VontarX3BluetoothOverlay \
+    libbt-vendor
+
+## Bluetooth firmware
+include kernel/amlogic/kernel-modules/dhd-driver/firmware/bluetooth/bluetooth.mk
 
 ## Factory
 PRODUCT_HOST_PACKAGES += \
@@ -21,10 +25,13 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
 ## Platform
-TARGET_AMLOGIC_SOC := sm1
+#TARGET_AMLOGIC_SOC := sm1
 
 ## TEE
 TARGET_HAS_TEE := false
+
+# Wi-Fi firmware
+include kernel/amlogic/kernel-modules/dhd-driver/firmware/wifi/wifi.mk
 
 ## Inherit from the common tree product makefile
 $(call inherit-product, device/amlogic/sm1-common/sm1.mk)
