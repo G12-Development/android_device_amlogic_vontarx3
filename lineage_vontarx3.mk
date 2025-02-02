@@ -19,16 +19,13 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 ## Device identifier. This must come after all inclusions
 PRODUCT_BRAND := amlogic
 PRODUCT_DEVICE := vontarx3
-PRODUCT_GMS_CLIENTID_BASE := android-askey-tv
 PRODUCT_MANUFACTURER := amlogic
 PRODUCT_MODEL := Vontar X3
 PRODUCT_NAME := lineage_vontarx3
-PRODUCT_SYSTEM_NAME := vontarx3
 
 PRODUCT_GMS_CLIENTID_BASE := android-droid-tv
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="adt3-user 13 TTT1.230205.001 9565391 release-keys" \
-    TARGET_PRODUCT=$(PRODUCT_SYSTEM_NAME)
-
-BUILD_FINGERPRINT := ADT-3/adt3/adt3:13/TTT1.230205.001/9565391:user/release-keys
+    BuildDesc="adt3-user 13 TTT1.230205.001 9565391 release-keys" \
+    BuildFingerprint=ADT-3/adt3/adt3:13/TTT1.230205.001/9565391:user/release-keys \
+    SystemName=vontarx3
